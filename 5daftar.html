@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar - SmagiCoin</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('2bg-hp.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        background: url('3bg-pc.jpg') no-repeat center center fixed;
+        background-size: cover;
+      }
+    }
+
+    .logo {
+      margin-top: 40px;
+      width: 120px;
+      height: auto;
+    }
+
+    .form-container {
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 350px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #ff6600;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .form-group select {
+      background: #fff;
+    }
+
+    .btn-daftar {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff6600;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-daftar:hover {
+      background-color: #e55c00;
+    }
+
+    .info {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <img src="4logo.png" alt="Logo SmagiCoin" class="logo">
+
+  <div class="form-container">
+    <h2>Daftar Akun</h2>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" required>
+      </div>
+
+      <div class="form-group">
+        <label for="kelas1">Kelas</label>
+        <select id="kelas1" required>
+          <option value="">Pilih Tingkat</option>
+          <option value="X">X</option>
+          <option value="XI">XI</option>
+          <option value="XII">XII</option>
+        </select>
+
+        <select id="kelas2" required>
+          <option value="">Pilih Nomor</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="jk">Jenis Kelamin</label>
+        <select id="jk" required>
+          <option value="">Pilih Jenis Kelamin</option>
+          <option value="Perempuan">Perempuan</option>
+          <option value="Laki-laki">Laki-laki</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="pw">Password</label>
+        <input type="password" id="pw" required>
+      </div>
+
+      <div class="form-group">
+        <label for="pw2">Konfirmasi Password</label>
+        <input type="password" id="pw2" required>
+      </div>
+
+      <button type="submit" class="btn-daftar">Daftar</button>
+    </form>
+
+    <div class="info">
+      Sudah punya akun? <a href="4login.html">Masuk di sini</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('registerForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nama = document.getElementById('nama').value;
+      const kelas1 = document.getElementById('kelas1').value;
+      const kelas2 = document.getElementById('kelas2').value;
+      const jk = document.getElementById('jk').value;
+      const email = document.getElementById('email').value;
+      const pw = document.getElementById('pw').value;
+      const pw2 = document.getElementById('pw2').value;
+
+      if (pw !== pw2) {
+        alert("Password tidak cocok!");
+        return;
+      }
+
+      const kelasFinal = `${kelas1}-${kelas2}`;
+
+      // Simpan data sementara ke localStorage
+      const userData = { nama, kelas: kelasFinal, jk, email, pw };
+      localStorage.setItem('user', JSON.stringify(userData));
+
+      alert("Pendaftaran berhasil! Silakan login.");
+      window.location.href = "4login.html";
+    });
+  </script>
+</body>
+</html>

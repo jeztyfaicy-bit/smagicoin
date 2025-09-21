@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmagiCoin</title>
+  <style>
+    /* Atur default background (PC) */
+    body {
+      margin: 0;
+      padding: 0;
+      background: url("3bg-pc.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    /* Background khusus untuk HP */
+    @media (max-width: 768px) {
+      body {
+        background: url("2bg-hp.jpg") no-repeat center center fixed;
+        background-size: cover;
+      }
+    }
+
+    /* Logo */
+    .logo {
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+
+    .logo img {
+      width: 150px;
+      max-width: 60%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Container tombol */
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    /* Tombol umum */
+    .btn {
+      padding: 12px 40px;
+      border-radius: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      border: 2px solid orange;
+      width: 180px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    /* Tombol Masuk */
+    .btn-masuk {
+      background-color: orange;
+      color: white;
+    }
+
+    /* Tombol Daftar */
+    .btn-daftar {
+      background-color: white;
+      color: orange;
+    }
+
+    /* Hover efek */
+    .btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="4logo.png" alt="SmagiCoin Logo">
+  </div>
+
+  <!-- Tombol -->
+  <div class="buttons">
+    <div class="btn btn-masuk">Masuk</div>
+    <div class="btn btn-daftar">Daftar</div>
+  </div>
+
+</body>
+</html>
